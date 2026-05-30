@@ -1,0 +1,184 @@
+{
+  "name": "@takk/modelchain",
+  "version": "1.0.0",
+  "description": "Universal, drop-in, measurable LLM router with native streaming and tool calling. Routes prompts across OpenAI, Anthropic, Gemini and any OpenAI-compatible HTTP endpoint by cost, latency and observed quality. Includes a Vercel AI SDK adapter. Zero runtime dependencies. Works in Node, Edge runtimes (Cloudflare Workers, Vercel Edge, Deno, Bun) and the browser (React, Next.js, Vue, Svelte, Solid).",
+  "keywords": [
+    "llm-router",
+    "model-routing",
+    "model-router",
+    "cost-aware-routing",
+    "ai-infrastructure",
+    "drop-in",
+    "openai",
+    "anthropic",
+    "gemini",
+    "langchain-alternative",
+    "ai-gateway",
+    "ai-agent",
+    "streaming",
+    "tool-calling",
+    "function-calling",
+    "vercel-ai-sdk",
+    "edge",
+    "cloudflare-workers",
+    "vercel-edge",
+    "deno",
+    "bun",
+    "react",
+    "nextjs",
+    "vue",
+    "typescript"
+  ],
+  "homepage": "https://github.com/davccavalcante/modelchain",
+  "bugs": {
+    "url": "https://github.com/davccavalcante/modelchain/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davccavalcante/modelchain.git"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "David C Cavalcante",
+    "email": "davcavalcante@proton.me",
+    "url": "https://takk.ag"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./providers": {
+      "import": {
+        "types": "./dist/providers/index.d.ts",
+        "default": "./dist/providers/index.js"
+      },
+      "require": {
+        "types": "./dist/providers/index.d.cts",
+        "default": "./dist/providers/index.cjs"
+      }
+    },
+    "./web": {
+      "import": {
+        "types": "./dist/web/index.d.ts",
+        "browser": "./dist/web/index.js",
+        "default": "./dist/web/index.js"
+      },
+      "require": {
+        "types": "./dist/web/index.d.cts",
+        "default": "./dist/web/index.cjs"
+      }
+    },
+    "./edge": {
+      "import": {
+        "types": "./dist/edge/index.d.ts",
+        "worker": "./dist/edge/index.js",
+        "default": "./dist/edge/index.js"
+      },
+      "require": {
+        "types": "./dist/edge/index.d.cts",
+        "default": "./dist/edge/index.cjs"
+      }
+    },
+    "./ai-sdk": {
+      "import": {
+        "types": "./dist/ai-sdk/index.d.ts",
+        "default": "./dist/ai-sdk/index.js"
+      },
+      "require": {
+        "types": "./dist/ai-sdk/index.d.cts",
+        "default": "./dist/ai-sdk/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "modelchain": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "CHANGELOG.md",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist coverage .tsbuildinfo",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check src tests",
+    "lint:fix": "biome check --write src tests",
+    "format": "biome format --write src tests",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "publint": "publint",
+    "attw": "attw --pack --ignore-rules=no-resolution",
+    "size": "size-limit",
+    "prepack": "pnpm run build",
+    "verify": "pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build && pnpm run publint"
+  },
+  "peerDependencies": {
+    "@ai-sdk/provider": ">=3.0.0",
+    "@anthropic-ai/sdk": ">=0.30.0",
+    "@google/genai": ">=0.7.0",
+    "ai": ">=5.0.0",
+    "openai": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@ai-sdk/provider": {
+      "optional": true
+    },
+    "@anthropic-ai/sdk": {
+      "optional": true
+    },
+    "@google/genai": {
+      "optional": true
+    },
+    "ai": {
+      "optional": true
+    },
+    "openai": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@ai-sdk/provider": "^3.0.10",
+    "@anthropic-ai/sdk": "^0.100.1",
+    "@arethetypeswrong/cli": "^0.18.3",
+    "@biomejs/biome": "^2.4.16",
+    "@google/genai": "^2.7.0",
+    "@size-limit/preset-small-lib": "^12.1.0",
+    "@types/node": "^25.9.1",
+    "@vitest/coverage-v8": "^4.1.7",
+    "ai": "^6.0.193",
+    "openai": "^6.39.1",
+    "publint": "^0.3.21",
+    "size-limit": "^12.1.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
+  },
+  "packageManager": "pnpm@10.34.1",
+  "sideEffects": false
+}

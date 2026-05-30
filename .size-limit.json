@@ -1,0 +1,42 @@
+[
+  {
+    "name": "@takk/modelchain (core, ESM)",
+    "path": "dist/index.js",
+    "limit": "22 KB"
+  },
+  {
+    "name": "@takk/modelchain (core, CJS)",
+    "path": "dist/index.cjs",
+    "limit": "22 KB"
+  },
+  {
+    "name": "@takk/modelchain/providers",
+    "path": "dist/providers/index.js",
+    "limit": "18 KB"
+  },
+  {
+    "name": "@takk/modelchain/web (ESM)",
+    "path": "dist/web/index.js",
+    "limit": "28 KB"
+  },
+  {
+    "name": "@takk/modelchain/web (CJS)",
+    "path": "dist/web/index.cjs",
+    "limit": "28 KB"
+  },
+  {
+    "name": "@takk/modelchain/edge (ESM)",
+    "path": "dist/edge/index.js",
+    "limit": "24 KB"
+  },
+  {
+    "name": "@takk/modelchain/edge (CJS)",
+    "path": "dist/edge/index.cjs",
+    "limit": "24 KB"
+  },
+  {
+    "name": "@takk/modelchain/ai-sdk",
+    "path": "dist/ai-sdk/index.js",
+    "limit": "8 KB"
+  }
+]
